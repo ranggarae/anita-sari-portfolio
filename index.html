@@ -33,11 +33,12 @@
         <div class="container hero-container">
             <div class="hero-image-wrapper">
                 <div class="hero-image">
-                    <img src="assets/profile.jpg" alt="Anita Sari">
+                    <img src="assets/profile_new.png" alt="Anita Sari">
                 </div>
                 <!-- Peeping Sunny Sunshine Sticker -->
-                <div class="mini-nailong-peep">
-                    <img src="assets/dino_hello.png" alt="Hello Sunshine Mascot" width="100">
+                <div class="mini-nailong-peep sticker-container">
+                    <img src="assets/sticker_hello.png" class="interactive-sticker" alt="Hello Sunshine Mascot" width="100" data-msg="Halo! Selamat datang di portofolio Kak Anita! ☀️">
+                    <div class="sticker-bubble">Halo! ☀️</div>
                 </div>
             </div>
             <div class="hero-content">
@@ -67,7 +68,11 @@
                 <p>Pengalaman Kerja</p>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">🎓</div>
+                <!-- Snack Mascot -->
+                <div class="sticker-container" style="display: inline-block; margin-bottom: 10px;">
+                    <img src="assets/sticker_snack.png" class="interactive-sticker" alt="Snack Mascot" width="80" data-msg="Ngemil dulu biar fokus rekrutmen! 🍪">
+                    <div class="sticker-bubble">Nyam! 🍪</div>
+                </div>
                 <h3>11</h3>
                 <p>Sertifikasi Profesional</p>
             </div>
@@ -83,7 +88,10 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header-with-sticker">
-                <img src="assets/dino_detective.png" alt="Detective Sourcing Mascot" class="section-title-sticker">
+                <div class="sticker-container">
+                    <img src="assets/sticker_detective.png" alt="Detective Sourcing Mascot" class="section-title-sticker interactive-sticker" data-msg="Aku sedang menyeleksi kandidat terbaik! 🔍">
+                    <div class="sticker-bubble">Mana ya? 🔍</div>
+                </div>
                 <h2 class="section-title">Pengalaman Kerja</h2>
             </div>
             <div class="timeline">
@@ -168,7 +176,13 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Kompetensi 🌟</h2>
+            <div class="section-header-with-sticker">
+                <div class="sticker-container">
+                    <img src="assets/sticker_cool.png" alt="Cool Sun Mascot" class="section-title-sticker interactive-sticker" data-msg="Skill Kak Anita mantap & keren abis! 😎">
+                    <div class="sticker-bubble">Keren! 😎</div>
+                </div>
+                <h2 class="section-title">Kompetensi</h2>
+            </div>
             <div class="skills-grid">
                 <div class="skills-category">
                     <h3>Recruitment & Sourcing 🎯</h3>
@@ -211,7 +225,10 @@
     <section id="education" class="education">
         <div class="container">
             <div class="section-header-with-sticker">
-                <img src="assets/dino_story.png" alt="Story Time Mascot" class="section-title-sticker">
+                <div class="sticker-container">
+                    <img src="assets/sticker_story.png" alt="Story Time Mascot" class="section-title-sticker interactive-sticker" data-msg="Mari membaca kisah sukses Kak Anita! 📚">
+                    <div class="sticker-bubble">Belajar! 📚</div>
+                </div>
                 <h2 class="section-title">Pendidikan</h2>
             </div>
             <div class="edu-card">
@@ -229,7 +246,13 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container contact-container">
-            <h2 class="section-title">Hubungi Saya 👋</h2>
+            <div class="section-header-with-sticker">
+                <div class="sticker-container">
+                    <img src="assets/sticker_dreamer.png" alt="Dreamer Mascot" class="section-title-sticker interactive-sticker" data-msg="Jangan lupa beristirahat dan bermimpi besar! 💤">
+                    <div class="sticker-bubble">Zzz... 💤</div>
+                </div>
+                <h2 class="section-title">Hubungi Saya</h2>
+            </div>
             <p class="contact-desc">Saya terbuka untuk peluang kolaborasi baru di bidang HR, Rekrutmen, dan HRBP. Ayo terhubung!</p>
             <div class="contact-links">
                 <a href="mailto:Anitta.sari1999@gmail.com" class="contact-item">
@@ -250,15 +273,19 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <div class="sticker-container">
+                <img src="assets/sticker_wait.png" alt="Wait Mascot" class="interactive-sticker" width="60" data-msg="Menunggu panggilan wawancara selanjutnya! ⏳">
+                <div class="sticker-bubble">Sabar... ⏳</div>
+            </div>
             <p>&copy; 2026 Anita Sari. Built with 💛 & Sunny Mascot Theme.</p>
         </div>
     </footer>
 
     <!-- Floating Waddling Mascot using Extracted Sticker -->
-    <div class="mascot-float" id="mascot-float">
-        <img src="assets/dino_jump.png" alt="Super Jump Mascot" width="100">
-        <div class="bubble-speech" id="bubble-speech">Halo! Semangat Rekrutmen! ✨</div>
+    <div class="mascot-float sticker-container" id="mascot-float">
+        <img src="assets/sticker_jump.png" class="interactive-sticker" alt="Super Jump Mascot" width="100" data-msg="Lompat tinggi untuk karir yang cemerlang! 🚀">
+        <div class="sticker-bubble">Lompat! 🚀</div>
     </div>
 
     <script src="app.js"></script>
