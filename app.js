@@ -70,11 +70,11 @@ const certifications = [
 
 // --- MASCOT PHRASES ---
 const mascotPhrases = [
-    "Halo! Semangat Rekrutmen! ✨",
-    "Aku Nailong! Yuk lihat CV Kak Anita! 🦖",
+    "Halo! Aku Sunny Sunshine! ☀️",
+    "Yuk lihat CV Kak Anita! Bubbly & lucu kan? 🦖",
     "Kak Anita punya 11 sertifikasi HR lho! 🎓",
     "Wawancara BEI? Sourcing LinkedIn? Kak Anita jagonya! 🎯",
-    "Duang~ Duang~ gemes banget websitenya! 💛",
+    "Aku suka baca buku (Story Time) & detektif rekrutmen! 🔍",
     "Sarjana Psikologi Gunadarma IPK 3.40! Mantap! 🌟"
 ];
 
@@ -174,6 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show initial greeting after 2 seconds
     setTimeout(() => {
-        showSpeechBubble("Halo! Aku Nailong! 🦖");
+        showSpeechBubble("Halo! Aku Sunny Sunshine! ☀️");
     }, 2000);
 });
