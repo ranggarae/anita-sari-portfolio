@@ -681,7 +681,10 @@ section:not(.hero):not(.stats) {
     border-radius: 16px;
     font-size: 0.8rem;
     font-weight: 800;
-    white-space: nowrap;
+    white-space: normal;
+    width: max-content;
+    max-width: 180px;
+    text-align: center;
     box-shadow: 0 4px 0 var(--border-color);
     opacity: 0;
     pointer-events: none;
