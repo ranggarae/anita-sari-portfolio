@@ -617,39 +617,35 @@ section:not(.hero):not(.stats) {
     width: 0;
     z-index: -1;
 }
-
-/* --- MASCOT ANIMATION CHUNKS --- */
-@keyframes waddle-head {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg) translateY(-1px); }
+/* --- MASCOT & STICKER STYLING & ANIMATION --- */
+.section-header-with-sticker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
 }
-.nailong-head {
-    transform-origin: 45px 38px;
-    animation: waddle-head 2s ease-in-out infinite;
+.section-header-with-sticker .section-title {
+    margin-bottom: 0;
 }
-@keyframes tail-wag {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(-10deg) translate(-2px, 1px); }
+.section-header-with-sticker .section-title::after {
+    display: none;
 }
-.nailong-tail {
-    transform-origin: 20px 70px;
-    animation: tail-wag 1.5s ease-in-out infinite;
+.section-title-sticker {
+    width: 80px;
+    height: auto;
+    animation: simple-float 2.5s infinite ease-in-out;
 }
-@keyframes hand-wave {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: translateY(-3px) rotate(15deg); }
+.mini-nailong-peep img {
+    animation: simple-float 3s infinite ease-in-out;
 }
-.nailong-hand-wave {
-    transform-origin: 60px 48px;
-    animation: hand-wave 1s ease-in-out infinite;
+@keyframes simple-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
 }
 @keyframes floating-mascot {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
-}
-@keyframes float {
-    0%, 100% { transform: translate(-50%, 0); }
-    50% { transform: translate(-50%, -6px); }
+    50% { transform: translateY(-10px) rotate(3deg); }
 }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
