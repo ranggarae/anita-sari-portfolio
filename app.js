@@ -68,6 +68,18 @@ const certifications = [
     }
 ];
 
+// --- MASCOT PHRASES ---
+const mascotPhrases = [
+    "Halo! Semangat Rekrutmen! ✨",
+    "Aku Nailong! Yuk lihat CV Kak Anita! 🦖",
+    "Kak Anita punya 11 sertifikasi HR lho! 🎓",
+    "Wawancara BEI? Sourcing LinkedIn? Kak Anita jagonya! 🎯",
+    "Duang~ Duang~ gemes banget websitenya! 💛",
+    "Sarjana Psikologi Gunadarma IPK 3.40! Mantap! 🌟"
+];
+
+let phraseIndex = 0;
+
 // --- RENDER FUNCTION ---
 function renderCertifications(filter = "all") {
     const grid = document.getElementById("cert-grid");
@@ -78,9 +90,11 @@ function renderCertifications(filter = "all") {
         return cert.category === filter;
     });
 
-    filtered.forEach(cert => {
+    filtered.forEach((cert, idx) => {
         const card = document.createElement("div");
         card.className = "cert-card";
+        // Stagger animation delay
+        card.style.animationDelay = `${idx * 50}ms`;
 
         const iconSVG = `
             <svg class="cert-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -102,8 +116,10 @@ function renderCertifications(filter = "all") {
 
 // --- EVENT LISTENERS ---
 document.addEventListener("DOMContentLoaded", () => {
+    // Initial Render
     renderCertifications("all");
 
+    // Filter Buttons
     const filterBtns = document.querySelectorAll(".filter-btn");
     filterBtns.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -112,9 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const filterValue = btn.getAttribute("data-filter");
             renderCertifications(filterValue);
+
+            // Pop speech bubble on filter click
+            showSpeechBubble("Wah, ini sertifikasi pilihan! 🎯");
         });
     });
 
+    // Navbar Scroll Effect
     window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navbar");
         if (window.scrollY > 50) {
@@ -123,4 +143,37 @@ document.addEventListener("DOMContentLoaded", () => {
             navbar.classList.remove("scrolled");
         }
     });
+
+    // Mascot Interactivity
+    const mascot = document.getElementById("mascot-float");
+    const speech = document.getElementById("bubble-speech");
+
+    // Helper to show bubble
+    function showSpeechBubble(text) {
+        speech.innerText = text;
+        speech.classList.add("show");
+        // Clear previous timeout if any
+        if (window.bubbleTimeout) clearTimeout(window.bubbleTimeout);
+        window.bubbleTimeout = setTimeout(() => {
+            speech.classList.remove("show");
+        }, 3000);
+    }
+
+    mascot.addEventListener("click", () => {
+        phraseIndex = (phraseIndex + 1) % mascotPhrases.length;
+        showSpeechBubble(mascotPhrases[phraseIndex]);
+
+        // Trigger manual bump animation on click
+        mascot.style.animation = 'none';
+        mascot.offsetHeight; // Trigger reflow
+        mascot.style.animation = 'floating-mascot 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        setTimeout(() => {
+            mascot.style.animation = 'floating-mascot 3s ease-in-out infinite';
+        }, 500);
+    });
+
+    // Show initial greeting after 2 seconds
+    setTimeout(() => {
+        showSpeechBubble("Halo! Aku Nailong! 🦖");
+    }, 2000);
 });
