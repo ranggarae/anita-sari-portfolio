@@ -568,7 +568,7 @@ section:not(.hero):not(.stats) {
 .mascot-float {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 80px;
     z-index: 1000;
     cursor: pointer;
     display: flex;
@@ -738,7 +738,7 @@ section:not(.hero):not(.stats) {
     }
     .mascot-float {
         bottom: 20px;
-        right: 20px;
+        right: 45px;
         transform: scale(0.8);
     }
 }
