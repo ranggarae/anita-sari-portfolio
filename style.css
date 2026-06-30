@@ -648,6 +648,68 @@ section:not(.hero):not(.stats) {
     50% { transform: translateY(-10px) rotate(3deg); }
 }
 
+/* --- INTERACTIVE STICKERS & BUBBLE CHAT --- */
+.sticker-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.interactive-sticker {
+    cursor: pointer;
+    transition: var(--transition);
+}
+.interactive-sticker:hover {
+    transform: scale(1.15) rotate(3deg);
+}
+.interactive-sticker:active {
+    transform: scale(0.95);
+}
+.sticker-bubble {
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: #fff;
+    border: 3px solid var(--text-color);
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 4px 0 var(--border-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 100;
+    color: var(--text-color);
+}
+.sticker-bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+.sticker-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #fff transparent;
+}
+.sticker-bubble::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(3px);
+    border-width: 9px 9px 0;
+    border-style: solid;
+    border-color: var(--text-color) transparent;
+    z-index: -1;
+}
+
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 900px) {
     .hero-container {
