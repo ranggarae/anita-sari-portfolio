@@ -566,7 +566,7 @@ section:not(.hero):not(.stats) {
 
 /* --- FLOATING MASCOT & SPEECH BUBBLE --- */
 .mascot-float {
-    position: fixed;
+    position: fixed !important;
     bottom: 30px;
     right: 80px;
     z-index: 1000;
