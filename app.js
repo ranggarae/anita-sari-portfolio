@@ -144,36 +144,49 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Mascot Interactivity
-    const mascot = document.getElementById("mascot-float");
-    const speech = document.getElementById("bubble-speech");
+    // Universal Sticker Interactivity
+    const interactiveStickers = document.querySelectorAll(".interactive-sticker");
 
-    // Helper to show bubble
-    function showSpeechBubble(text) {
-        speech.innerText = text;
-        speech.classList.add("show");
-        // Clear previous timeout if any
-        if (window.bubbleTimeout) clearTimeout(window.bubbleTimeout);
-        window.bubbleTimeout = setTimeout(() => {
-            speech.classList.remove("show");
-        }, 3000);
-    }
+    interactiveStickers.forEach(sticker => {
+        sticker.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const msg = sticker.getAttribute("data-msg");
+            const container = sticker.closest(".sticker-container");
+            if (!container) return;
 
-    mascot.addEventListener("click", () => {
-        phraseIndex = (phraseIndex + 1) % mascotPhrases.length;
-        showSpeechBubble(mascotPhrases[phraseIndex]);
+            const bubble = container.querySelector(".sticker-bubble");
+            if (!bubble) return;
 
-        // Trigger manual bump animation on click
-        mascot.style.animation = 'none';
-        mascot.offsetHeight; // Trigger reflow
-        mascot.style.animation = 'floating-mascot 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        setTimeout(() => {
-            mascot.style.animation = 'floating-mascot 3s ease-in-out infinite';
-        }, 500);
+            bubble.innerText = msg;
+            bubble.classList.add("show");
+
+            // Bouncy click animation on image
+            sticker.style.transform = "scale(0.9) rotate(-3deg)";
+            setTimeout(() => {
+                sticker.style.transform = "";
+            }, 150);
+
+            // Special bump for floating mascot
+            if (container.id === "mascot-float") {
+                container.style.animation = 'none';
+                container.offsetHeight; // Trigger reflow
+                container.style.animation = 'floating-mascot 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                setTimeout(() => {
+                    container.style.animation = 'floating-mascot 3s ease-in-out infinite';
+                }, 500);
+            }
+
+            // Clear after 3 seconds
+            if (sticker.bubbleTimeout) clearTimeout(sticker.bubbleTimeout);
+            sticker.bubbleTimeout = setTimeout(() => {
+                bubble.classList.remove("show");
+            }, 3000);
+        });
     });
 
-    // Show initial greeting after 2 seconds
+    // Show initial greeting on floating mascot after 2 seconds
     setTimeout(() => {
-        showSpeechBubble("Halo! Aku Sunny Sunshine! ☀️");
+        const floatMascotImg = document.querySelector("#mascot-float .interactive-sticker");
+        if (floatMascotImg) floatMascotImg.click();
     }, 2000);
 });
